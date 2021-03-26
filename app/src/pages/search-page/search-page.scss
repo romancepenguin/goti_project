@@ -1,0 +1,20 @@
+@import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+page-search-page {
+  #map{
+    //height:;
+    //width:100%;
+    //background:grey;
+    //color:red;
+    user-select: none;
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+    z-index: 9;
+    text-align:center;
+    padding:20px;
+  }
+  .marker{
+    width: 60px;
+    height: 60px;
+  }
+}

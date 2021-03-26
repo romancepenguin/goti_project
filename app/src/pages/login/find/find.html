@@ -1,0 +1,93 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>아이디,비밀번호 찾기</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+     <ion-label color="primary">이름</ion-label>
+     <ion-input placeholder="이름을 입력하세요." [(ngModel)] = "findid_name"></ion-input>
+   </ion-item>
+   <ion-item>
+     성별 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     남자<input name="options" type="radio" [(ngModel)]="id_gender" [value]="1" [checked]="id_gender==1" />
+     &nbsp;&nbsp;&nbsp;&nbsp;여자<input name="options" type="radio" [(ngModel)]="id_gender" [value]="2" [checked]="id_gender==2" />
+   </ion-item>
+   <ion-item>
+     <ion-label>생일 선택</ion-label>
+     <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="findid_date"></ion-datetime>
+   </ion-item>
+   <ion-grid>
+     <ion-row>
+       <ion-col col-auto><font size=3 color="black">이메일 : </font></ion-col>
+       <ion-col col-30>
+         <ion-input [(ngModel)] = "findid_email" type="text"></ion-input>
+         <hr />
+       </ion-col>
+       <ion-col col-auto><font size=3 color="black">@</font></ion-col>
+       <ion-col col-30>
+         <ion-input placeholder="이메일직접입력" [(ngModel)] = "findid_address" type="text"></ion-input>
+         <hr />
+       </ion-col>
+     </ion-row>
+     <ion-row>
+       <ion-col offset-2>
+         <ion-select [(ngModel)]="findid_address" interface="popover" placeholder = "이메일 선택">
+           <ion-option value="naver.com">naver.com</ion-option>
+           <ion-option value="hanmail.net">hanmail.net</ion-option>
+           <ion-option value="nate.com">nate.com</ion-option>
+           <ion-option value="google.com">google.com</ion-option>
+         </ion-select>
+       </ion-col>
+     </ion-row>
+   </ion-grid>
+   <button ion-button outline block (click)="findId()">아이디 찾기</button>
+
+   <br/><br/><br/>
+   <ion-item>
+      <ion-label color="primary">아이디</ion-label>
+      <ion-input placeholder="아이디를 입력하세요." [(ngModel)] = "findpwd_id"></ion-input>
+    </ion-item>
+    <ion-item>
+       <ion-label color="primary">이름</ion-label>
+       <ion-input placeholder="이름을 입력하세요." [(ngModel)] = "findpwd_name"></ion-input>
+     </ion-item>
+   <ion-item>
+     성별 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     남자<input name="options2" type="radio" [(ngModel)]="pwd_gender" [value]="1" [checked]="pwd_gender==1" />
+     &nbsp;&nbsp;&nbsp;&nbsp;여자<input name="options2" type="radio" [(ngModel)]="pwd_gender" [value]="2" [checked]="pwd_gender==2" />
+   </ion-item>
+    <ion-item>
+      <ion-label>생일 선택</ion-label>
+      <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="findpwd_date"></ion-datetime>
+    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-auto><font size=3 color="black">이메일 : </font></ion-col>
+        <ion-col col-30>
+          <ion-input [(ngModel)] = "findpwd_email" type="text"></ion-input>
+          <hr />
+        </ion-col>
+        <ion-col col-auto><font size=3 color="black">@</font></ion-col>
+        <ion-col col-30>
+          <ion-input placeholder="이메일직접입력" [(ngModel)] = "findpwd_address" type="text"></ion-input>
+          <hr />
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offset-2>
+          <ion-select [(ngModel)]="findpwd_address" interface="popover" placeholder = "이메일 선택">
+            <ion-option value="naver.com">naver.com</ion-option>
+            <ion-option value="hanmail.net">hanmail.net</ion-option>
+            <ion-option value="nate.com">nate.com</ion-option>
+            <ion-option value="google.com">google.com</ion-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <button ion-button outline block (click)="findPassword()">비밀번호 찾기</button>
+</ion-content>

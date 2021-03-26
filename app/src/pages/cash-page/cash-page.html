@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>PASS 충전</ion-title>
+  </ion-navbar>
+
+<!--
+  개선할 사항
+  1. 카드간 간격
+  2. 폰트 크기
+  3. 버튼 모양
+  4. 버튼 이벤트 처리
+-->
+
+</ion-header>
+
+<ion-content text-center>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let pass_package of pass_package_list">
+        <ion-card>
+          <ion-card-header style="background-color: #755eff; color: white">
+            <font size="5"><div>{{pass_package.pass_value}}</div>
+            <div>pass</div></font>
+          </ion-card-header>
+          <ion-card-content>
+            <div>가격</div>
+            <div>{{pass_package.price}}원</div>
+            <div>+1 PASS</div>
+            <button ion-button outline block (click)="energy(pass_package)">시작하기</button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

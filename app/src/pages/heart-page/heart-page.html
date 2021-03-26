@@ -1,0 +1,20 @@
+<!--
+  Generated template for the HeartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+</ion-header>
+
+
+<ion-content padding>
+      <button *ngIf="data_check" ion-button outline block (click)="allHeartRemove()">전체 취소</button>
+      <div class="blank" *ngIf="!data_check">{{context}}</div>
+      <div *ngFor="let facility of facilites; let i=index">
+        <list-facility checkFilter="true" [facility]="facility" [lat]="lat" [lon]="lon" [heart]="heart">
+        </list-facility>
+        <button ion-button outline small (click)="heartRemove(facility._id)">{{facility.bname}} 찜 제거</button>
+      </div>
+</ion-content>

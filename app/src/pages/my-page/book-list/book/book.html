@@ -1,0 +1,44 @@
+<ion-grid *ngIf="payment">
+  <ion-row>
+    <ion-col col-5 (click)="detail_Page()">
+      <img id="banner" src="data:image/jpeg;base64,{{facility.banner}}">
+    </ion-col>
+    <ion-col>
+      <ion-row (click)="detail_Page()">
+        <ion-col><font class="bname">{{facility.bname}}</font></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <font size="2"><ion-icon name="call"></ion-icon> &nbsp;&nbsp;{{facility.phone}}</font>
+          <font (click)="cancel_all()">전체 취소</font>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        {{open_check}}
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <font size="2">{{order_item_list.length}}건</font>
+          <ion-icon *ngIf="expand==false" (click)="expand_detail()" name="arrow-dropdown"></ion-icon>
+          <ion-icon *ngIf="expand" (click)="fold_detail()" name="arrow-dropup"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="expand">
+    <ion-grid style="border: 1px solid #755eff;border-radius: 10px;" *ngFor="let order of order_item_list">
+      <ion-row>
+        <ion-col col-6>
+          <font size="2">{{order.item_name}}</font>
+        </ion-col>
+        <ion-col>
+          <font size="2">보유량 : {{order.count}}</font>
+        </ion-col>
+        <ion-col>
+          <button small (click)="cancel(order.item_name,order._id, order.count)" style="font-size:11px;color: #755eff;" ion-button outline>취소</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-row>
+
+</ion-grid>

@@ -1,0 +1,8 @@
+<ion-list>
+  <ion-item-group *ngFor="let date of date_list">
+    <ion-item-divider>{{date}}</ion-item-divider>
+    <div *ngFor = "let payment of payment_list|groupBydate:date">
+      <book [payment]="payment" [facility]="get_facility(payment.f_id)" [order_item_list]="filter_order(payment.order_id_list)"></book>
+    </div>
+  </ion-item-group>
+</ion-list>

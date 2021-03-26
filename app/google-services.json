@@ -1,0 +1,65 @@
+{
+  "project_info": {
+    "project_number": "69159763488",
+    "firebase_url": "https://goti-b4fe8.firebaseio.com",
+    "project_id": "goti-b4fe8",
+    "storage_bucket": "goti-b4fe8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69159763488:android:9094c8f33d732198",
+        "android_client_info": {
+          "package_name": "com.ionicframework.gopass4681455"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "69159763488-hqv9locofg3oco3dujhtknd3or10sgvg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ionicframework.gopass4681455",
+            "certificate_hash": "d02d56f9d41982c366c889b4a79072f18115acd9"
+          }
+        },
+        {
+          "client_id": "69159763488-h40ol4i8ub5hchqekkues9q66hvo4ir7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9Fu7uDUmV2Vjxyn1_2SvzXiUnZn0IxyE"
+        },
+        {
+          "current_key": "AIzaSyAVyOigz4zCyjGvvXbokiTIYn_0DCUvPpw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "69159763488-0csa7bpio4loq5ftvqlldunugue85smb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ionicframework.gopass4681455"
+              }
+            },
+            {
+              "client_id": "69159763488-h40ol4i8ub5hchqekkues9q66hvo4ir7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

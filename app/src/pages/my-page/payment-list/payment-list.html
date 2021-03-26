@@ -1,0 +1,12 @@
+<div *ngIf="payment">
+    <ion-card>
+      <ion-card-header>
+        상품 명 : {{payment.pass_package_id.package_name}} &nbsp;&nbsp;
+        <font size = "2">결제일시 : {{payment.date}}</font>
+      </ion-card-header>
+      <ion-card-content>
+          가격 : {{payment.pass_package_id.price}} &nbsp;&nbsp;&nbsp;
+          패스 : {{payment.pass_package_id.pass_value}}
+      </ion-card-content>
+    </ion-card>
+</div>

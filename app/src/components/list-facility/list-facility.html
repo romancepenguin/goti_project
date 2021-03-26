@@ -1,0 +1,30 @@
+<ion-grid (click)="detail_Page()" *ngIf="checkFilter">
+  <ion-row>
+    <ion-col col-4>
+      <img id="banner" src="data:image/jpeg;base64,{{facility.banner}}">
+    </ion-col>
+    <ion-col>
+      <ion-row>
+        <font class="bname">{{facility.bname}}</font>
+        <img id="star" src="assets/item/star.png">
+        <font class="score">
+          {{format_score(facility.score)}}
+        </font>
+      </ion-row>
+      <ion-row>
+        {{calculateDistance(lat,lon,facility.loc.lat,facility.loc.lon)}} km &nbsp;
+        <span *ngFor="let kind of facility.kind;">
+          <img id="marker" src="assets/item/{{format(kind)}}.png">
+        </span>
+      </ion-row>
+      <ion-row>
+        {{facility.adr.si_do}}
+        {{facility.adr.si_gun_goo}}
+        {{facility.adr.town}}
+      </ion-row>
+      <ion-row>
+        {{pass_count()}}
+      </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-grid>

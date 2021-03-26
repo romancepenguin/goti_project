@@ -1,0 +1,14 @@
+<div *ngIf="use">
+  <div *ngFor="let order of use.order_id_list">
+      <font size = "3">{{use.f_id.bname}}</font>
+    <ion-card>
+      <ion-card-header>
+        상품 명 : {{order.item_name}}
+      </ion-card-header>
+      <ion-card-content *ngFor="let use_date of order.use_date">
+          사용일시 : {{use_date.date}}
+          &nbsp;&nbsp;&nbsp;사용수 : {{use_date.count}}
+      </ion-card-content>
+    </ion-card>
+  </div>
+</div>

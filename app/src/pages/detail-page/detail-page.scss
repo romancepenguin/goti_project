@@ -1,0 +1,117 @@
+page-detail-page {
+  .comment_class li{
+    padding: 1px 1px !important;
+    color: #ffb400;
+    ion-icon {
+     font-size: 20px;
+   }
+  }
+  .heart{
+    color:#755eff;
+    font-size: 40px;
+    top:1%;
+    right:5%;
+    position: absolute;
+  }
+  #map {
+      width: 100%;
+      height: 30%;
+  }
+  #list{
+    width: 170px;
+    height: 150px;
+  }
+  ion-content {
+    overflow: hidden;
+  }
+  ion-slides {
+      height: 150px;
+      width: 100%;
+  }
+  .score{
+    font-weight: 800;
+    font-size: 1.2em;
+    line-height: 1.0em;
+    color: #755eff;
+    font-family: 윤고딕;
+  }
+  #buy_button{
+    //height:;
+    //width:100%;
+    //background:grey;
+    //color:red;
+    user-select: none;
+    position: fixed;
+    bottom: 10%;
+    right: 40%;
+    //left: 50%;
+    z-index: 9;
+    text-align:center;
+    padding:20px;
+  }
+  .price{
+    font-weight: 700;
+    font-size: 1.1em;
+    line-height: 1.0em;
+    color: #000000;
+  }
+  .adr{
+    font-weight: 700;
+    font-size: 1.1em;
+    line-height: 1.0em;
+    color: #000000;
+  }
+  .context{
+    font-weight: 700;
+    font-size: 1.1em;
+    line-height: 1.0em;
+    color: #000000;
+  }
+  .time{
+    font-weight: 700;
+    font-size: 1.1em;
+    line-height: 1.0em;
+    color: #000000;
+  }
+  .fac{
+    font-weight: 900;
+    font-size: 1.5em;
+    line-height: 1.0em;
+    color: #393839;
+    font-family: 윤고딕;
+  }
+  .phone{
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.2em;
+    line-height: 1.0em;
+    color:#755eff;
+  }
+  .line{
+    text-align: center;
+    background-color: #393839;
+    width:100%;
+    height: 1px;
+  }
+  .items {
+    color: #755eff;
+    text-align: center;
+    width:100%;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    overflow:hidden;
+    border-radius: 10px;
+    box-shadow: #666 0px 2px 3px;
+    overflow: hidden;
+    background-color: #FFFFFF;
+    th, td {
+      border: 1px solid #755eff;
+    }
+  }
+  #face {
+	   stroke-width: 2px; stroke: #000fff;
+  }
+  .applyFooter{
+    margin-bottom: 10% !important;
+  }
+}

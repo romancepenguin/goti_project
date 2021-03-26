@@ -1,0 +1,118 @@
+var FacilityPayment = require('../models/facility_payment');
+var Facility = require('../models/facility');
+var User = require('../models/user');
+var OrderItem = require('../models/order_item');
+var FacilityRecommendCb = require('../models/facility_recommend_cb');
+var FacilityRecommendFp = require('../models/facility_recommend_fp');
+var Event_ = require('../models/event');
+
+var mongoose = require('mongoose');
+var VerfiyActions = require('../auth/verifyActions');
+var errMsg = require('../config/errorMsg');
+
+var funcions = {
+    getEvent : function (req,res){
+      VerfiyActions.verify(req,res).then(
+       object_id=>{
+         console.log(object_id)
+         Event_.find()
+         .exec(function(err, event_){
+           if(err||!event_) res.status(403).json({success: false, status: errMsg.logic});
+           else{
+             res.json(event_);
+           }
+         })
+       },err=>{
+         res.status(403).json({success: false, status: errMsg.logic});
+       }
+      )
+    },
+    getFp : function (req,res){
+      VerfiyActions.verify(req,res).then(
+       object_id=>{
+         //console.log(object_id)
+         let ObjectId = require('mongoose').Types.ObjectId;
+         FacilityPayment.findOne({object_u_id:ObjectId(object_id)}) //구매 데이터를 기준으로 해서
+         .sort({date:-1}) //최신 구매 기준을 통해서
+         .exec(function(err, facility_payment){
+           console.log(facility_payment);
+           if(err||!facility_payment) res.status(403).json({success: false, status: errMsg.logic});
+           else{
+             let toSt = facility_payment.f_id.toString();
+             FacilityRecommendFp.findOne({antecedent:facility_payment.f_id.toString()})
+             .limit(6)
+             //.populate("consequent")
+             .exec(function(err, fp){
+               //console.log(fp.consequent);
+               if(err) res.status(403).json({success: false, status: errMsg.logic});
+               else if(!fp||fp.consequent.length <= 2){ //fp자료가 없으면 많이 팔릴순으로 추천
+                 console.log("fp자료부족");
+                 FacilityPayment.aggregate({$group:{_id:"$f_id",count:{$sum:1}}})
+                 .limit(6)
+                 .sort({ count: -1 })
+                 .exec(function(err, facility_payment2){
+                   console.log(facility_payment2)
+                   let f_list2 = [];
+                   for(let i=0;i<facility_payment2.length;i++){
+                    f_list2.push(facility_payment2[i]._id);
+                   }
+                   //console.log(f_list2)
+                   Facility.find({_id:{$in:f_list2.map(function(o){ return mongoose.Types.ObjectId(o);})}})
+                   .exec(function(err, facility){
+                     if(err||!facility) res.status(403).json({success: false, status: errMsg.logic});
+                     else{
+                       res.json(facility);
+                     }
+                   })
+                 })
+               }
+               else{
+                 Facility.find({_id:{$in:fp.consequent.map(function(o){ return mongoose.Types.ObjectId(o);})}})
+                 .exec(function(err, facility){
+                   if(err||!facility) res.status(403).json({success: false, status: errMsg.logic});
+                   else{
+                     res.json(facility);
+                   }
+                 })
+               }
+             })
+           }
+         })
+       },err=>{
+         res.status(403).json({success: false, status: errMsg.logic});
+       }
+      )
+    },
+    getCb : function (req,res){
+      VerfiyActions.verify(req,res).then(
+       object_id=>{
+         console.log(object_id)
+         FacilityRecommendCb.findOne({object_u_id:object_id.toString()}) //협업 필터링을 기준
+         .limit(6)
+         .exec(function(err, cb){
+           if(err||!cb) res.status(403).json({success: false, status: errMsg.logic});
+           else{
+             console.log(cb.recommendations);
+             console.log("******");
+             let query=[];
+             for(let i=0;i<cb.recommendations.length;i++){
+               query.push(cb.recommendations[i].slice(1,25));
+             }
+             console.log(query);
+             Facility.find({_id:{$in:query.map(function(o){ return mongoose.Types.ObjectId(o);})}})
+             .exec(function(err, facility){
+               if(err||!facility) res.status(403).json({success: false, status: errMsg.logic});
+               else{
+                 res.json(facility);
+               }
+             })
+           }
+         })
+       },err=>{
+        res.status(403).json({success: false, status: errMsg.logic});
+       }
+      )
+    },
+}
+
+module.exports = funcions;

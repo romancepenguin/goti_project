@@ -1,0 +1,122 @@
+<ion-content padding class="applyFooter">
+  <!--<ion-slides pager loop sliderPerView = "3" spaceBetween = "-10">-->
+  <div *ngIf="fac">
+    <div style="text-align:center">
+      <button style="color:#755eff;top:1%;left:2%; position: absolute;" ion-button small (click)="backPage()" outline><ion-icon name="arrow-round-back"></ion-icon></button>
+      <font class="fac">{{fac.bname}}</font>
+      <ion-icon class="heart" [name]="heart" (click)="mark_facility()"></ion-icon>
+    </div>
+    <hr/>
+    <br/>
+  <img id="mag" src="data:image/jpeg;base64,{{mimg}}">
+  <ion-slides pager zoom spaceBetween = "-150px" sliderPerView = "3" initialSlide="1">
+    <ion-slide *ngFor = "let g of img">
+      <img id="list" src="data:image/jpeg;base64,{{g}}" (click)="magnify(g)">
+    </ion-slide>
+  </ion-slides>
+
+  <p>
+    &nbsp;&nbsp;<span  class="context">종목</span> : [
+    <span *ngFor="let kind of fac.kind">{{kind}}&nbsp;</span>
+    ]&nbsp;&nbsp;
+    <font class="score">
+      스코어 : {{fac.score}}
+    </font>
+  </p>
+  <p>
+    <ion-icon style="color:#755eff;font-size:25px;" name="call"></ion-icon>
+    <font class="phone">{{fac.phone}}</font>
+  </p>
+  <p><font  class="adr">주소 :&nbsp;</font>
+    <font>{{fac.adr.si_do}}&nbsp;{{fac.adr.si_gun_goo}}&nbsp;{{fac.adr.town}}&nbsp;{{fac.adr.numb}}
+    </font>
+  </p>
+
+
+  <hr class="line">
+    <p><span  class="context">안내</span> :&nbsp;{{fac.context}}</p>
+  <hr class="line">
+  <p class="time">운영시간 :&nbsp;</p>
+    <p>평일 : {{fac.weekday.open}} ~ {{fac.weekday.close}}</p>
+    <p>주말 : {{fac.weekend.open}} ~ {{fac.weekend.close}}</p>
+  <hr class="line">
+
+  <p class="price">아이템 :&nbsp;</p>
+  <table class="items">
+    <tr>
+      <th>종목</th><th>가격</th>
+    </tr>
+    <tr *ngFor = "let f of fac.item_id_list">
+      <td>{{f.item_name}}</td><td>{{f.pass}} pass</td>
+    </tr>
+  </table>
+</div>
+<hr class="line"/>
+<p class="price">위치 :&nbsp;</p>
+<div #map id="map"></div>
+
+<hr class="line"/>
+  <ion-item>
+   <ion-label color="primary" stacked>댓글 제목</ion-label>
+   <ion-input [(ngModel)] = "title" placeholder="댓글 제목을 입력하세요"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-textarea [(ngModel)] = "comment" placeholder="내용을 입력하세요"></ion-textarea>
+  </ion-item>
+  <ion-grid align="right">
+    <ion-row>
+      <ion-col>
+        <rating class="comment_class" [(ngModel)]="rate"
+              readOnly="false"
+              max="5"
+              emptyStarIconName="star-outline"
+              halfStarIconName="star-half"
+              starIconName="star"
+              nullable="false" >
+        </rating>
+      </ion-col>
+      <ion-col>
+        <button style="font-size: 15px;color:#755eff;" small ion-button outline (click)="comment_enrol()">
+          댓글달기
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+<hr class="line"/>
+
+<p>가장 추천을 많이 받은 댓글</p>
+<div *ngFor="let comment of comments">
+  <user-comment [comment]="comment"></user-comment>
+</div>
+  <span (click)="view_all_user_comment()">{{expand_comments}}</span>
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</ion-content>
+
+<ion-pullup id="pullup" (onExpand)="footerExpanded()" (onCollapse)="footerCollapsed()" [(state)]="footerState" maxHeight="300">
+  <ion-pullup-tab style="font-size: 15px;background-color:#755eff;" (tap)="toggleFooter()">
+    <ion-icon name="arrow-up" *ngIf="footerState == 0"></ion-icon><ion-icon name="arrow-down" *ngIf="footerState == 1"></ion-icon>
+  </ion-pullup-tab>
+  <ion-toolbar style="font-size: 15px;color:#755eff;" (tap)="toggleFooter()">
+    <ion-title>{{footer_title}}</ion-title>
+  </ion-toolbar>
+  <ion-content>
+    <ion-list>
+      <ion-list *ngIf="expand">
+        <ion-item *ngIf="fac_item_extend">
+          <ion-label>상품선택</ion-label>
+          <ion-select [(ngModel)]="buylist" multiple="true">
+              <ion-option *ngFor = "let f of fac.item_id_list" [value]="f">{{f.item_name}} : {{f.pass}}pass</ion-option>
+          </ion-select>
+        </ion-item>
+        <span *ngFor = "let b of buylist; let i=index" >
+          <ion-item>
+            {{b.item_name}} : {{b.pass}}pass <ion-icon style="text-align:right" name="backspace" (click)="cancel(i)"></ion-icon>
+            <p style="text-align:right">갯수 -&nbsp;&nbsp;<input type="text" style="height:25px;width:60px;" [id]="b._id" value="1" />
+            <ion-icon name="arrow-up" (click)="countUp(b._id)"></ion-icon>&nbsp;<ion-icon name="arrow-down" (click)="countDown(b._id)"></ion-icon></p>
+          </ion-item>
+        </span>
+      </ion-list>
+      <button ion-button center (click)="purchase()" style="background-color:#755eff;"  block full>결제하기</button>
+    </ion-list>
+  </ion-content>
+</ion-pullup>

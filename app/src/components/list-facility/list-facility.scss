@@ -1,0 +1,27 @@
+list-facility {
+  #banner{ //배너이미지 크기
+    border-radius: 5%;
+  }
+  #marker{
+    height: 30px;
+    width: 30px;
+  }
+  #star{
+    height: 20px;
+    width: 20px;
+  }
+  .score{
+    font-weight: 500;
+    font-size: 1.0em;
+    line-height: 1.0em;
+    color: #755eff;
+    font-family: 윤고딕;
+  }
+  .bname{
+    font-weight: 700;
+    font-size: 1.7;
+    line-height: 1.0em;
+    color: #000000;
+    font-family: 윤고딕;
+  }
+}

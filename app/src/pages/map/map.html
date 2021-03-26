@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>지도</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div #map id="map" [style.height]="mheight"></div>
+  <br>
+  <div>
+    <list-facility checkFilter="true" *ngIf="show == true" [facility]="facility" [lat]="lat" [lon]="lon">
+    </list-facility>
+  </div>
+
+</ion-content>

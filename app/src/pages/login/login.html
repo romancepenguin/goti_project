@@ -1,0 +1,37 @@
+<ion-content padding style="
+  background-image: url('assets/login/login_background.jpg');
+  width: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;">
+  <img src="assets/login/gotivity.png"/>
+
+  <p style="left: 10%;right: 10%; bottom: 1%;position: fixed;">
+    <ion-list>
+      <ion-item style="opacity: 0.85">
+          <ion-label>아이디</ion-label>
+          <ion-input [(ngModel)] = "usercreds.name" type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item style="opacity: 0.85">
+          <ion-label>패스워드</ion-label>
+          <ion-input [(ngModel)] = "usercreds.password" type="password"></ion-input>
+      </ion-item>
+    </ion-list>
+  <button style="opacity: 0.90" ion-button (click)="login(usercreds)" block full color="light">로그인</button>
+    <font color="#FFFFFF">
+      <div align="center" style="background-color:#000000; opacity: 0.85;">아직 gotivity 회원이 아니세요? <span style=" font-weight:bold" (click)="signup()">지금 가입하기</span>
+      <p>혹시 계정을 잊어버렸나요?<span style=" font-weight:bold" (click)="findIdPassword()">id/password 찾기</span></p>
+    </div>
+    </font>
+  <button style="opacity: 0.85" ion-button center (click)="facebookLogin()" icon-left color="blue"  block full>
+    <ion-icon name="logo-facebook"></ion-icon>
+    &nbsp;&nbsp;페이스북으로 로그인/회원가입
+  </button>
+  <button style="opacity: 0.85" (click)="googleLogin()" ion-button block icon-left color="danger"  block full>
+    <ion-icon name="logo-google"></ion-icon>
+    &nbsp;&nbsp;구글로 로그인/회원가입
+  </button>
+  </p>
+</ion-content>

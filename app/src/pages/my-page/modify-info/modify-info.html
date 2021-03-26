@@ -1,0 +1,52 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>정보 수정</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <font size="4">{{user.name}} 님 안녕하세요</font>
+    </ion-card-header>
+    <ion-list>
+      <ion-item>
+        아이디 : {{user.u_id}}
+      </ion-item>
+      <ion-item>
+        유저생일 : {{user.birthday}}
+      </ion-item>
+      <ion-item>
+        이메일 : {{user.email}}
+      </ion-item>
+      <ion-item>
+        전화번호 : {{user.phone}}
+      </ion-item>
+      <ion-item>
+        보유패스 : {{user.pass}}
+      </ion-item>
+      <ion-item>
+        총 충전패스 : 서비스 대기중
+      </ion-item>
+      <ion-item>
+        포인트 : {{user.point}} 시험 서비스
+      </ion-item>
+      <ion-item>
+        가입날짜 : {{user.sign_date}}
+      </ion-item>
+    </ion-list>
+    <ion-card-content>
+      <font color="primary" (click)='changePassword()'>
+        <ion-icon name="create"></ion-icon>
+          비밀번호 변경
+      </font>
+      &nbsp;&nbsp;&nbsp;
+      <font color="primary" (click)='changeEmail()'>
+        <ion-icon name="create"></ion-icon>
+        이메일 변경
+      </font>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

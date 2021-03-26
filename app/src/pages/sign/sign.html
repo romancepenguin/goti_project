@@ -1,0 +1,71 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>회원가입</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+      <ion-item>
+          <ion-label fixed>아이디 : </ion-label>
+          <ion-input [(ngModel)] = "newcreds.u_id" (input)="checkId(newcreds.u_id)" type="text"></ion-input>
+      </ion-item>
+        <p class="sCheck"><font size="2" [color]="id_ExplainColor">{{sCheckId}}</font></p>
+      <ion-item>
+          <ion-label fixed>비밀번호 : </ion-label>
+          <ion-input [(ngModel)] = "newcreds.password" type="password" (input)="checkPwd(newcreds.password)" placeholder = "8자리 이상 20자 이내 영문,숫자,혼합 필수"></ion-input>
+      </ion-item>
+        <p class="sCheck"><font size="2" [color]="pwd_ExplainColor">{{sCheckPwd}}</font></p>
+      <ion-item>
+          <ion-label fixed>이름 : </ion-label>
+          <ion-input [(ngModel)] = "newcreds.name" (input)="checkName(newcreds.name)" type="text"></ion-input>
+      </ion-item>
+        <p class="sCheck"><font size="2" [color]="name_ExplainColor">{{sCheckName}}</font></p>
+      <ion-item>
+        <ion-label fixed>생일 : </ion-label>
+        <ion-datetime align="left"
+        displayFormat="YYYY년 &nbsp;&nbsp;&nbsp;&nbsp; MM월 &nbsp;&nbsp;&nbsp;&nbsp; DD일"
+         [(ngModel)]="newcreds.month"
+         doneText="확인" cancelText="취소"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        성별 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        남자<input name="options" type="radio" [(ngModel)]="newcreds.gender" [value]="1" [checked]="options==1" />
+        &nbsp;&nbsp;&nbsp;&nbsp;여자<input name="options" type="radio" [(ngModel)]="options" [value]="2" [checked]="options==2" />
+      </ion-item>
+      <ion-item>
+          <ion-label fixed>전화번호 : </ion-label>
+          <ion-input placeholder="'-'없이 입력해주세요" [(ngModel)] = "newcreds.phone" type="text"></ion-input>
+      </ion-item>
+</ion-list>
+
+<ion-grid>
+  <ion-row>
+    <ion-col col-auto><font size=3 color="black">이메일 : </font></ion-col>
+    <ion-col col-30>
+      <ion-input [(ngModel)] = "newcreds.email" type="text"></ion-input>
+      <hr />
+    </ion-col>
+    <ion-col col-auto><font size=3 color="black">@</font></ion-col>
+    <ion-col col-30>
+      <ion-input placeholder="이메일직접입력" [(ngModel)] = "newcreds.address" type="text"></ion-input>
+      <hr />
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col offset-2>
+      <ion-select [(ngModel)]="newcreds.address" interface="popover" placeholder = "이메일 선택">
+        <ion-option value="naver.com">naver.com</ion-option>
+        <ion-option value="hanmail.net">hanmail.net</ion-option>
+        <ion-option value="nate.com">nate.com</ion-option>
+        <ion-option value="google.com">google.com</ion-option>
+      </ion-select>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+  <button ion-button (click)="checkError()" full block color="light">회원가입</button>
+</ion-content>

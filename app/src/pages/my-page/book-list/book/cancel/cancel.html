@@ -1,0 +1,16 @@
+<ion-header>
+      <button ion-button (click)="dismiss()" icon-only> <ion-icon name="arrow-round-back"></ion-icon></button>
+    취소페이지
+</ion-header>
+
+<ion-content>
+  <div>취소할 수량을 선택 하세요.</div>
+  <div>{{item_name}}</div>
+  <ion-item>
+    <ion-range min="0" [max]="item_count" [(ngModel)]="count">
+      <ion-label range-left>1</ion-label>
+      <ion-label range-right>{{item_count}}</ion-label>
+    </ion-range>
+  </ion-item>
+  <button ion-button round (click)='cancel()'>완료</button>
+</ion-content>

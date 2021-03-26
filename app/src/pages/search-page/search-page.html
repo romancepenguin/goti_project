@@ -1,0 +1,58 @@
+<!--
+  Generated template for the SearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label><ion-icon name="search"></ion-icon></ion-label>
+    <ion-input [(ngModel)] = "input" type="text" (keyup.enter)="onInput()" placeholder="시설, 지역명 or 종목 검색"></ion-input>
+  </ion-item>
+  <p>
+    거리순 <ion-icon name="arrow-round-up" (click)="sort_distance(1)"></ion-icon>&nbsp;&nbsp;
+    <ion-icon name="arrow-round-down" (click)="sort_distance(0)"></ion-icon>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    평점순 <ion-icon name="arrow-round-up" (click)="sort_rate(1)"></ion-icon>&nbsp;&nbsp;
+    <ion-icon name="arrow-round-down" (click)="sort_rate(0)"></ion-icon>
+    <font (click)="expand_filter()" style="position:absolute;right: 5%;">필터링 {{expand_filter_word}}</font>
+  </p>
+
+  <div *ngIf="expand_filter_value">
+    pass
+    <ion-range dualKnobs="true" min="0" max="500" pin="true"  [(ngModel)]="structure"  style="color: #755eff;">
+      <ion-label range-left>0</ion-label>
+      <ion-label range-right>500</ion-label>
+    </ion-range>
+    종목
+    <div align="center">
+      <span *ngFor="let marker of markers;let i=index" (click)="filter_marker_on(i)">
+        <img class="marker" [style.border]="clicked_marker[i]" src="assets/item/{{i}}.png"/>
+      </span>
+    </div>
+  </div>
+
+   <!--<ion-icon name="search"></ion-icon>
+  <ion-input placeholder="검색 " [(ngModel)]="input" (key.enter)="onInput($event)"></ion-input>-->
+  <button id="map" ion-button round (click)="mapPage()" style="background-color: #755eff;">지도 보기</button>
+
+  <ion-list id="list">
+    <p *ngFor="let facility of facilites|sort:query_distance:query_rate:lat:lon">
+      <list-facility [checkFilter]="filter_list(facility)" [facility]="facility" [lat]="lat" [lon]="lon" [heart]="heart">
+      </list-facility>
+    </p>
+  </ion-list>
+
+  <ion-infinite-scroll *ngIf="moreCanBeLoaded" (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+    loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  <!-- 추가데이터 로딩중 이펙트, 텍스트 -->
+
+</ion-content>

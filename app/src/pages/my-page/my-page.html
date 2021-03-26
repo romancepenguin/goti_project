@@ -1,0 +1,74 @@
+<!--
+  Generated template for the MyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+</ion-header>
+
+
+<ion-content padding>
+<div class="profile" *ngIf="MyProfile">
+  <table class="profile_table">
+    <tr>
+      <td rowspan="3" width="40%">
+        <img id="profile_img" [src]="profileImage" (click) = "openActionSheet()">
+      </td>
+    </tr>
+    <tr>
+      <td width="60%" height="10%">
+      <font size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{MyProfile.name}}&nbsp;&nbsp;님</font>
+      <ion-icon style="color:#755eff; font-size:25px" (click)="configControl()" name="build"></ion-icon>
+    </td>
+    </tr>
+    <tr>
+      <td>
+      <p><font size="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{MyProfile.pass}}&nbsp;&nbsp;pass
+      </font></p>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button style="color:#755eff;" ion-button outline small (click)="modifyMyInfo()">내정보 수정</button>
+      &nbsp;&nbsp;<ion-icon style="color:#755eff; font-size:25px" name="refresh" (click)="refresh_pass()"></ion-icon>
+    </td>
+    </tr>
+    <!--<tr>
+      <td>프로필 변경</td><td>
+    </td>
+    </tr>-->
+  </table>
+</div>
+<ion-list>
+<div class="menu" style="background-color:#FFFFFF">
+  <ion-segment [(ngModel)]="record" color="primary">
+    <ion-segment-button value="book">
+      예약현황
+    </ion-segment-button>
+    <ion-segment-button value="util">
+      이용기록
+    </ion-segment-button>
+    <ion-segment-button value="cash">
+      충전기록
+    </ion-segment-button>
+  </ion-segment>
+</div>
+<div class="info" [ngSwitch]="record" style="background-color:#FFFFFF">
+  <ion-list *ngSwitchCase="'book'">
+    <book-list></book-list>
+  </ion-list>
+  <ion-list *ngSwitchCase="'util'">
+    <div *ngFor="let use of use_list">
+      <use-list [use]="use"></use-list>
+      <hr/>
+    </div>
+  </ion-list>
+  <ion-list *ngSwitchCase="'cash'">
+      <!--<div *ngFor="let payment of payment_list">
+        <payment-list [payment]="payment"></payment-list>
+      </div>-->
+      잠긴 기능입니다.
+  </ion-list>
+</div>
+</ion-list>
+
+  <!--<img class="profile" [src]="profileImage" *ngIf="profileImage" />-->
+</ion-content>

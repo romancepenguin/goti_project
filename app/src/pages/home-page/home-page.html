@@ -1,0 +1,39 @@
+<ion-content padding>
+  <!--<span class="title">메인이벤트</span>
+  <ion-card *ngIf="event_list">
+    <ion-slides pager loop="true" autoplay="3000" speed="1000">
+      <ion-slide *ngFor="let event of event_list">
+        <font style="position:absolute;right:3%" size="2">시작일 {{event.start_date}} ~ 종료일 {{event.end_date}}</font>
+        <br/>
+        <img src="data:image/jpeg;base64,{{event.banner}}">
+      </ion-slide>
+    </ion-slides>
+  </ion-card>-->
+
+<hr/>
+  <span class="title">hot place!! (유저 패턴 분석)</span>
+  <ion-slides class="recommend" pager zoom spaceBetween = "-80px" sliderPerView = "3" initialSlide="1">
+    <ion-slide *ngFor="let fp of fp_list">
+      <div (click)="detail_Page(fp._id)">
+        <font size="2">{{fp.bname}}</font>
+              </div>
+        <img src="data:image/jpeg;base64,{{fp.banner}}">
+    </ion-slide>
+  </ion-slides>
+
+<hr/>
+
+  <span class="title" *ngIf="cb_list">사용자 맞춤 추천!!</span>
+  <div *ngIf="cb_list.length > 0;else other_content">
+    <ion-slides class="recommend" pager zoom spaceBetween = "-80px" sliderPerView = "3" initialSlide="1">
+      <ion-slide *ngFor="let cb of cb_list">
+        <div (click)="detail_Page(cb._id)">
+          <font size="2">{{cb.bname}}</font>
+        </div>
+          <img src="data:image/jpeg;base64,{{cb.banner}}">
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+<hr/>
+</ion-content>
