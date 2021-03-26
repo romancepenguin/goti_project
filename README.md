@@ -17,6 +17,27 @@
 - nodejs : v12.20.2
 - npm : 7.6.3
 - mongo : 4.4.4
-상세 구축 방법은 각 디렉토리 README.md 참조
+
+## Usage
+app 테스트
+```sh
+npm install -g @ionic/cli
+npm install --legacy-peer-deps
+npm run ionic:serve
+```
+접속 http://127.0.0.1:8100/
+
+server
+npm install
+npm start
+
+ml
+spark-2.4.7-bin-hadoop2.7
+python3.6.9
+export PYSPARK_PYTHON=python3
+./spark-submit col.py
+./spark-submit fp.py
+
+testData
 
 ## 이미지
