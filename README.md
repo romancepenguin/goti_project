@@ -14,6 +14,7 @@
 ![image](https://user-images.githubusercontent.com/28975774/112632465-80535a80-8e7b-11eb-864f-787b902b5048.png)
 
 ## 환경
+공통
 - nodejs : v12.20.2
 - npm : 7.6.3
 - mongo : 4.4.4
@@ -27,17 +28,19 @@ npm run ionic:serve
 ```
 접속 http://127.0.0.1:8100/
 
-server
+server 테스트
+```sh
 npm install
 npm start
+```
+접속 http://127.0.0.1:3000/
 
 ml
+```sh
 spark-2.4.7-bin-hadoop2.7
 python3.6.9
-export PYSPARK_PYTHON=python3
 ./spark-submit col.py
 ./spark-submit fp.py
-
-testData
+```
 
 ## 이미지
