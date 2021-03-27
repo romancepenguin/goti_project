@@ -68,11 +68,8 @@ LOCK된 기능
 - 현재 위치 기반 서비스
 
 ## 구동 이미지
-![image](https://user-images.githubusercontent.com/28975774/112716893-6de52980-8f2c-11eb-8cdd-41dc6b879814.png)
-![image](https://user-images.githubusercontent.com/28975774/112716896-73db0a80-8f2c-11eb-8ef0-b3e900a1dadb.png)
-![image](https://user-images.githubusercontent.com/28975774/112716902-7a698200-8f2c-11eb-89ae-c1805de135ee.png)
-![image](https://user-images.githubusercontent.com/28975774/112716906-7dfd0900-8f2c-11eb-867b-5085546a641e.png)
-![image](https://user-images.githubusercontent.com/28975774/112716908-835a5380-8f2c-11eb-8dbb-1230c952389d.png)
+![image](https://user-images.githubusercontent.com/28975774/112716941-cb797600-8f2c-11eb-8e93-03f65a46b8e4.png)
+
 
 
 
