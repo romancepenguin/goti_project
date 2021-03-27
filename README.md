@@ -36,7 +36,6 @@ DB
 App(하이브리드 앱)
 ```sh
 cd app
-npm install -g @ionic/cli
 npm install --legacy-peer-deps
 npm run ionic:serve
 curl http://127.0.0.1:8100/
