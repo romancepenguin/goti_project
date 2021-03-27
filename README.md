@@ -11,7 +11,7 @@
 - 머신러닝(FP-growth, 협업필터링) 분석을 통한 사용자 맞춤 추천 O2O 서비스 제공
 
 ## 기술 스택
-![image](https://user-images.githubusercontent.com/28975774/112632465-80535a80-8e7b-11eb-864f-787b902b5048.png)
+<img src="https://user-images.githubusercontent.com/28975774/112632465-80535a80-8e7b-11eb-864f-787b902b5048.png"  width="250" height="100">
 
 ## 의존성
 App & Server
@@ -70,7 +70,7 @@ DEMO에서 LOCK된 기능
 - 현재 위치 기반 서비스
 
 ## 구동 이미지
-![image](https://user-images.githubusercontent.com/28975774/112716941-cb797600-8f2c-11eb-8e93-03f65a46b8e4.png)
+<img src="https://user-images.githubusercontent.com/28975774/112716941-cb797600-8f2c-11eb-8e93-03f65a46b8e4.png"  width="800" height="470">
 
 
 
