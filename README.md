@@ -39,16 +39,16 @@ cd app
 npm install -g @ionic/cli
 npm install --legacy-peer-deps
 npm run ionic:serve
+curl http://127.0.0.1:8100/
 ```
-접속 http://127.0.0.1:8100/
 
 Server
 ```sh
 cd server
 npm install
 npm start
+curl http://127.0.0.1:3000/
 ```
-접속 http://127.0.0.1:3000/
 
 ml(머신러닝)
 ```sh
