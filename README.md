@@ -60,9 +60,9 @@ python3.6.9
 
 ## DEMO
 모바일 버전으로 보는 것을 권장 드립니다.
-URL : http://13.124.42.129:3000/web/index.html
-ID : test
-PASSWORD : a12345678!
+- URL : http://13.124.42.129:3000/web/index.html
+- ID : test
+- PASSWORD : a12345678!
 > Note: AWS 서버 사용중으로 사정에 따라 다운할수도 있기 때문에, 접근 안될 수도 있습니다.
 
 DEMO에서 LOCK된 기능
